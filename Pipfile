@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+ipython = "*"
+v = {editable = true,version = "*"}
+
+[packages]
+pandas = "*"
+pandas-datareader = "*"
+matplotlib = "*"
+beautifulsoup4 = "*"
+scikit-learn = "*"
+
+[requires]
+python_version = "3.7"
