@@ -47,7 +47,7 @@ def get_data_from_google(reload_sp500=True):
     #df = web.DataReader(ticker, 'google', start, end)
     df.to_csv('stock_dfs/{}.csv'.format(ticker))
   
-    for ticker in tickers[:5]:
+    for ticker in tickers[:10]:
         try:
             print('Getting Prices for ticker {}'.format(ticker))
             if not os.path.exists('stocks_dfs/{}.csv'.format(ticker)):
