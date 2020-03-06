@@ -13,6 +13,7 @@ def save_sp500_tickers():
     tickers = []
     for row in table.findAll('tr')[1:]:
             ticker = row.findAll('td')[0].text
+            ticker = ticker[:-1]
             print('Found ticker {}'.format(ticker))
             tickers.append(ticker)
 
@@ -23,8 +24,6 @@ def save_sp500_tickers():
     print(tickers)
 
     return tickers
-
-save_sp500_tickers()
 
 def get_data_from_google(reload_sp500=True):
 
@@ -40,16 +39,26 @@ def get_data_from_google(reload_sp500=True):
     start = dt.datetime(2000,1,1)
     end = dt.datetime(2016,12,31)
 
+    ## just try one ticker
+    ticker = tickers[0]
+    print ('Getting one Ticker from file : ' +ticker)
+    #df = web.DataReader('{}'.format(ticker), 'yahoo', start, end)
+    df = web.DataReader(ticker, 'yahoo', start, end)
+    #df = web.DataReader(ticker, 'google', start, end)
+    df.to_csv('stock_dfs/{}.csv'.format(ticker))
+  
     for ticker in tickers[:5]:
         try:
             print('Getting Prices for ticker {}'.format(ticker))
             if not os.path.exists('stocks_dfs/{}.csv'.format(ticker)):
-                df = web.DataReader('{}'.format(ticker), 'google', start, end)
+#                df = web.DataReader('{}'.format(ticker), 'google', start, end)
+                df = web.DataReader(ticker, 'yahoo', start, end)
                 df.to_csv('stock_dfs/{}.csv'.format(ticker))
             else:
                 print('Already have {}'.format(ticker))
         except:
             print('Cannot obtain data for ' +ticker)
-
+    
 #save_sp500_tickers()
 get_data_from_google()
+
