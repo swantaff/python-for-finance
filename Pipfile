@@ -16,6 +16,7 @@ scikit-learn = "*"
 mpl-finance = "*"
 requests = "*"
 pickle = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.7"
