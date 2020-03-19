@@ -7,14 +7,14 @@ import pandas_datareader.data as web
 style.use ('ggplot')
 
 start = dt.datetime(2000,1,1)
-end = dt.datetime(2020,3,3)
+end = dt.datetime(2020,3,13)
 
-df = web.DataReader('TSLA', 'yahoo', start, end)
+df = web.DataReader('0P0000KSPA.L', 'yahoo', start, end)
 
-df.to_csv('tsla.csv')
+df.to_csv('vanguard.csv')
 
 # read data from csv file
-df = pd.read_csv('tsla.csv', parse_dates=True, index_col=0)
+df = pd.read_csv('vanguard.csv', parse_dates=True, index_col=0)
 
 print(df.tail()) # prints all columns
 

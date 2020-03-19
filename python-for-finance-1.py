@@ -7,9 +7,9 @@ import pandas_datareader.data as web
 style.use ('ggplot')
 
 start = dt.datetime(2000,1,1)
-end = dt.datetime(2020,3,3)
+end = dt.datetime(2020,3,13)
 
-df = web.DataReader('TSLA', 'yahoo', start, end)
+df = web.DataReader('0P0000KSPA.L', 'yahoo', start, end)
 
 print(df.head())
 print(df.tail())

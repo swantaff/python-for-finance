@@ -207,7 +207,7 @@ def extract_featuresets(ticker):
 #save_sp500_tickers()
 #get_data_from_google()
 #compile_data()
-#visualize_data()
+visualize_data()
 #process_data_for_labels('MMM')
 
 
